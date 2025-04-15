@@ -1,0 +1,408 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+}
+
+.head{
+    display: flex;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    background-color: white;
+}
+
+.head h1{
+    padding-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.head #search_form input{
+    width: 500px;
+    border-radius: 5px;
+    position: relative;
+    left: 150px;
+    border: none;
+    outline: 1px solid black;
+    padding: 12px;
+    padding-left: 35px;
+}
+
+.head i{
+    position: absolute;
+    top: 25px;
+    z-index: 1;
+    left: 410px;
+    color: gray;
+}
+
+.head span{
+    position: relative;
+    left: 200px;
+    top: 10px;
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    height: fit-content;
+    width: 150px;
+    cursor: pointer;
+}
+
+.head span i{
+    position: relative;
+    left: 5px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.head .sign_button{
+    width: 100px;
+    padding: 8px;
+    position: relative;
+    left: 400px;
+    top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid black;
+}
+
+/*      signup form   */
+
+.overlay{
+    background-color: #b8b8b6;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    transition: 0.5s;
+    z-index: 1;
+    display: none;
+}
+
+.popup_box{
+    height: 550px;
+    width: 400px;
+    background-color: white;
+    position: fixed;
+    top: 45px;
+    left: 500px;
+    border-radius: 5px;
+    z-index: 1;
+    transition: all 1s;
+    animation-name: pop;
+    animation-duration: 1s;
+    z-index: 1;
+    display: none;
+    
+}
+
+@keyframes pop{
+    from{transform: translateY(-500px);}
+    to{transform: translateY(0px);}
+}
+
+
+
+.popup_box h2{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+
+.popup_box #cancel{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+
+.popup_box form input{
+    width: 300px;
+    padding: 10px;
+    margin-top: 40px;
+    display: flex;
+    justify-self: center;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid black;
+}
+
+.popup_box form .signup_button{
+    cursor: pointer;
+}
+
+.popup_box form span{
+    display: flex;
+    justify-self: center;
+    position: relative;
+    top: 30px;
+}
+
+
+
+
+/*     navigation bar  */
+.sub_head{
+    background-color: whitesmoke;
+}
+
+.sub_head nav ul{
+    display: flex;
+    justify-content: end;
+    padding: 7px;
+    padding-right: 40px;
+    list-style-type: none;
+}
+
+.sub_head nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    padding: 0px 15px;
+    position: relative;
+    transition: color 0.3s;
+    margin-left: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sub_head nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sub_head nav ul li a:hover {
+    color: black;
+}
+
+.sub_head nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+
+/*    profile   page   */
+
+.head #profile{
+    position: relative;
+    left: 450px;
+    top: 10px;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+}
+
+
+.profile_overlay{
+    background-color: #b8b8b6;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    transition: 1s;
+    z-index: 1;
+    display: none;
+}
+
+.profile_popup_box{
+    height: 550px;
+    width: 400px;
+    background-color: white;
+    position: fixed;
+    top: 45px;
+    left: 500px;
+    border-radius: 5px;
+    transition: all 1s;
+    animation-duration: 1s;
+    animation-name: pop2;
+    z-index: 2;
+    display: none;
+}
+
+
+@keyframes pop2{
+    from{transform: translateY(-500px);}
+    to{transform: translateY(0px);}
+}
+
+
+.profile_popup_box #h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 25px;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.profile_popup_box #profile_cancel{  
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+.profile_popup_box #wel{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+.profile_popup_box .login_button{
+    width: 100px;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid black;
+    position: absolute;
+    bottom: 10px;
+    left: 70px;
+    bottom: 50px;
+}
+
+.profile_popup_box .logout_button{
+    width: 100px;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid black;
+    position: absolute;
+    bottom: 50px;
+    left: 230px;
+}
+
+.profile_popup_box p{
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.profile_popup_box h1{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.profile_popup_box #inner_profile{
+    font-size: 100px;
+    color: black;
+    display: flex;
+    justify-self: center;
+    margin-top: 30px;
+}
+
+
+/*   movies  section   */
+
+
+
+.contain{
+    background-color: black;
+    height: 500px;
+    display: flex;
+   
+}
+
+
+.movies{
+    background-color: white;
+    height: 380px;
+    width: 270px;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    position: relative;
+    top: 60px;
+    left: 130px;
+}
+
+
+.movies img{
+    height: 350px;
+    width: 250px;
+    border-radius: 5px;
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.contain .text{
+    position: relative;
+    left: 180px;
+    top: 150px;
+    height: fit-content;
+
+}
+
+
+.contain h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    font-size: 40px;
+}
+
+
+.contain h3{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    padding-top: 0px;
+    font-size: 30px;
+}
+
+.contain p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    padding-top: 0px;
+    font-size: 20px;
+}
+
+.contain a{
+    padding: 20px;
+    padding-top: 0px;
+}
+
+
+.contain a button{
+    width: 250px;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    outline: 1px solid white;
+    background-color: orangered;
+    cursor: pointer;
+}
+
+
+
