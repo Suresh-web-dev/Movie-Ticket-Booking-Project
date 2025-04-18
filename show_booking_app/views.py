@@ -6,9 +6,6 @@ from django.contrib.auth import logout
 from django.contrib import messages
 
 
-
-
-
 # Create your views here.
 
 def home(request):
@@ -325,22 +322,6 @@ def cinemas_search(request):
     return render(request, "cinemas.html")
 
 
-
-
-def event_success(request,id):
-    x =events_upload.objects.get(id=id)
-    obj = {"x":x}
-    return render(request,"event_success.html",obj)
-
-
-
-def sports_success(request,id):
-    x =sports_upload.objects.get(id=id)
-    obj = {"x":x}
-    return render(request,"sports_success.html",obj)
-
-
-
 def ticket_book(request):
     return render(request,"ticket_book.html")
 
@@ -360,10 +341,25 @@ def success(request,mov_id,cin_id):
     l = cinemas_upload.objects.get(id=cin_id)
     obj = {"k" :k,"l":l}
     
-    book.objects.create(title=k.title,language=k.language,movie_type=k.movie_type,cinemas_name=l.cinemas_name)
-
+    book.objects.create(image=k.image,title=k.title,language=k.language,movie_type=k.movie_type,cinemas_name=l.cinemas_name)
     
     return render(request,"booking_success.html",obj)
+
+
+
+def event_success(request,id):
+    x =events_upload.objects.get(id=id)
+    obj = {"x":x}
+    book.objects.create(image=x.image,title=x.title,location=x.location)
+    return render(request,"event_success.html",obj)
+
+
+
+def sports_success(request,id):
+    x =sports_upload.objects.get(id=id)
+    obj = {"x":x}
+    book.objects.create(image=x.image,title=x.title,location=x.location,sports_type=x.sports_type)
+    return render(request,"sports_success.html",obj)
 
 
 
@@ -371,6 +367,10 @@ def my_booking(request):
     all = book.objects.all()
     obj = {"all": all}
     return render(request,"my_booking.html",obj)
+
+
+
+
 
 
 

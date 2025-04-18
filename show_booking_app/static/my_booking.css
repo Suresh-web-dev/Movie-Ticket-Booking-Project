@@ -1,0 +1,84 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#my_booking{
+    display: flex;
+    border-bottom: 2px solid black;
+    justify-content: space-between;
+}
+
+#my{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    padding: 15px;
+}
+
+#username{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    padding: 15px;
+}
+
+.container{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 50px;
+    border-radius: 10px;
+    
+}
+
+
+.container .movies{
+    background-color: #b8b8b6;
+    height: 500px;
+    width: 270px;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    box-shadow: 5px 5px 8px black;
+}
+
+
+.container .movies span{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-self: center;
+    padding-top: 5px;
+}
+
+.container .movies img{
+    height: 350px;
+    width: 250px;
+    border-radius: 5px;
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.container .movies h2{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.container .movies p{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 5px;
+}
+
+
+.container a{
+    color: black;
+    text-decoration: none;
+}

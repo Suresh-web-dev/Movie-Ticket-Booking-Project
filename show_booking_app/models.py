@@ -43,7 +43,10 @@ class cinemas_upload(models.Model):
 
 
 class book(models.Model):
+    image = models.ImageField(upload_to='images/',null=True)
     title = models.CharField(max_length=255,null=True)
     language = models.CharField(max_length=255,null=True)
     movie_type = models.CharField(max_length=255,null=True)
     cinemas_name = models.CharField(max_length=255,null=True)
+    location = models.CharField(max_length=255,null=True)
+    sports_type = models.CharField(max_length=255,null=True)
