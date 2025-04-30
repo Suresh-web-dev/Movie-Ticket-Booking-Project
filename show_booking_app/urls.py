@@ -1,5 +1,5 @@
 from django.urls import path
-from show_booking_app.views import home,signup_view,login_view,signup_datas,logut_view,upload_movie,movies,tamil_movies,english_movies,malayalam_movies,hindi_movies,upload_events,events,sports,upload_sports,upload_cinemas,cinemas,admin_page,apply,one,two,three,search,event_search,sports_search,cinemas_search,ticket_book,movie_ticket,final_book,success,my_booking,event_success,sports_success
+from show_booking_app.views import home,signup_view,login_view,signup_datas,logut_view,upload_movie,movies,tamil_movies,english_movies,malayalam_movies,hindi_movies,upload_events,events,sports,upload_sports,upload_cinemas,cinemas,admin_page,apply,one,two,three,search,event_search,sports_search,cinemas_search,ticket_book,movie_ticket,seat_select,success,my_booking,event_success,sports_success,final_book,event_seat_select,sports_seat_select
 
 
 urlpatterns = [
@@ -31,9 +31,12 @@ urlpatterns = [
     path('cinemas_search/',cinemas_search),
     path('ticket_book/',ticket_book),
     path('movie_ticket/<int:id>/',movie_ticket),
-    path('final_book/<int:movie_id>/<int:cinema_id>/',final_book),
-    path('success/<int:mov_id>/<int:cin_id>/',success),
+    path('seat_select/<int:movie_id>/<int:cinema_id>/', seat_select),
+    path('success/<int:mov_id>/<int:cin_id>/<str:seats>/',success),
     path('my_booking/',my_booking),
     path('event_success/<int:id>/',event_success),
     path('sports_success/<int:id>/',sports_success),
+    path('final_book/<int:movie_id>/<int:cinema_id>/', final_book),
+    path('event_seat_select/<int:id>/', event_seat_select),
+    path('sports_seat_select/<int:id>/', sports_seat_select),
 ]

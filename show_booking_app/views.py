@@ -4,6 +4,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.contrib import messages
+from django.core.mail import send_mail
+
 
 
 # Create your views here.
@@ -21,13 +23,42 @@ def signup_view(request):
         email = request.POST.get("email")
         password1 = request.POST.get("password1")
         password2 = request.POST.get("password2")
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Username already exists. Please try another one.")
+            return redirect(signup_view)
+
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Email already registered. Please login.")
+            return redirect(signup_view)
+
+        if password1 != password2:
+            messages.error(request, "Passwords do not match!")
+            return redirect(signup_view)
+
         
         user = User.objects.create_user(username=username,email=email,password=password2)
         login(request,user)
 
+        send_mail(
+            subject=f"Welcome to Where’sMySeat, {username}!",
+            message=(
+                f"Dear {username},\n\n"
+                "Thank you for signing up at Where’sMySeat!\n\n"
+                "We’re excited to have you join our community. "
+                "With your new account, you can now enjoy a seamless experience booking your favorite seats.\n\n"
+                "Happy booking!\n\n"
+                "The Where’sMySeat Team"
+            ),
+            from_email='dssuresh68@gmail.com',
+            recipient_list=[email],
+            fail_silently=False,
+        )
+
         sign.objects.create(username=username,email=email,password1=password1,password2=password2)
         obj={"username":username,"email":email,"password1":password1,"password2":password2}
-    return render(request,"home.html",obj)
+        return render(request,"home.html",obj)
+    return redirect(home)
 
 
 def signup_datas(request):
@@ -328,38 +359,66 @@ def ticket_book(request):
 
 
 
-def final_book(request,movie_id,cinema_id):
+def seat_select(request,movie_id,cinema_id):
     m =image_upload.objects.get(id=movie_id)
     n = cinemas_upload.objects.get(id=cinema_id)
     obj = {"m" :m,"n":n}
-    return render(request,"final_book.html",obj)
+    return render(request,"seat_select.html",obj)
 
 
 
-def success(request,mov_id,cin_id):
+def final_book(request,movie_id,cinema_id):
+    if request.method == "POST":
+        seats = request.POST.get("seats")
+        q = image_upload.objects.get(id=movie_id)
+        r = cinemas_upload.objects.get(id=cinema_id)
+
+        return redirect(success, mov_id=movie_id, cin_id=cinema_id, seats=seats)
+    return render(request,"final_book.html")
+
+
+
+def success(request,mov_id,cin_id,seats):
     k =image_upload.objects.get(id=mov_id)
     l = cinemas_upload.objects.get(id=cin_id)
-    obj = {"k" :k,"l":l}
-    
-    book.objects.create(image=k.image,title=k.title,language=k.language,movie_type=k.movie_type,cinemas_name=l.cinemas_name)
-    
-    return render(request,"booking_success.html",obj)
 
+    book.objects.create(image=k.image,title=k.title,language=k.language,movie_type=k.movie_type,cinemas_name=l.cinemas_name,seats=seats)
+    obj = {"k" :k,"l":l,"seats":seats}
+    return render(request,"booking_success.html",obj)
 
 
 def event_success(request,id):
     x =events_upload.objects.get(id=id)
     obj = {"x":x}
-    book.objects.create(image=x.image,title=x.title,location=x.location)
+    if request.method == "POST":
+        seats = request.POST.get("seats")
+        obj["seats"] = seats
+        book.objects.create(image=x.image,title=x.title,location=x.location,seats=seats)
     return render(request,"event_success.html",obj)
+
+
+def event_seat_select(request,id):
+    e = events_upload.objects.get(id=id)
+    obj = {"e" :e}
+    return render(request,"event_seat_select.html",obj)
+
 
 
 
 def sports_success(request,id):
     x =sports_upload.objects.get(id=id)
     obj = {"x":x}
-    book.objects.create(image=x.image,title=x.title,location=x.location,sports_type=x.sports_type)
+    if request.method == "POST":
+        seats = request.POST.get("seats")
+        obj["seats"] = seats
+        book.objects.create(image=x.image,title=x.title,location=x.location,sports_type=x.sports_type,seats=seats)
     return render(request,"sports_success.html",obj)
+
+
+def sports_seat_select(request,id):
+    s = sports_upload.objects.get(id=id)
+    obj = {"s" :s}
+    return render(request,"sports_seat_select.html",obj)
 
 
 

@@ -19,9 +19,9 @@
                 <input type="text" name="title" placeholder="Search">
             </form>
             <i class="fa-solid fa-magnifying-glass"></i>
-
-            <button class="sign_button">Sign up</button>
+            <button class="sign_button">Sign Up</button>
             <i class="fa-solid fa-user" id="profile"></i>
+            
            
         </div>
     </header>
@@ -54,6 +54,11 @@
         <form action="/signup/" method="POST" id="signup_form">
             {% csrf_token %}
 
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="position: relative; left: 50px; top: 20px; color: red;">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
             <input type="text" name="username" placeholder="Username">
             <input type="email" name="email" placeholder="Email">
             <input type="password" name="password1" placeholder="Password">
@@ -132,9 +137,7 @@
             </div></a>
         {% endfor %}
         </div>
-
-
-
+        <h1 style="color: red; position: relative;">{{ error }}</h1>
 
 <script>
 

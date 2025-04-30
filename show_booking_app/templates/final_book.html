@@ -91,14 +91,15 @@
     
     <div class="contain">
         <div class="movies">
-            <img src="{{m.image.url}}">
+            <img src="{{q.image.url}}">
         </div>
         <div class="text">
-            <h2>{{ n.cinemas_name }}</h2>
-            <h1>{{m.title}}</h1>
-            <h3>{{m.language}}</h3>
-            <p>{{m.movie_type}}</p>
-            <a href="/success/{{ m.id }}/{{n.id}}"><button>Book Ticket</button></a>
+            <h2>{{ r.cinemas_name }}</h2>
+            <h1>{{q.title}}</h1>
+            <h3>{{q.language}}</h3>
+            <p>{{q.movie_type}}</p>
+            <p>{{seats}} Tickets</p>
+            <a href="/success/{{ q.id }}/{{r.id}}"><button>Book Ticket</button></a>
         </div>
     </div>
     

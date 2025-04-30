@@ -44,8 +44,14 @@
           {% if i.sports_type %}
             <p>{{ i.sports_type }}</p>
           {% endif %}
+
+          
+          {% if i.seats %}
+            <p>{{ i.seats }} Tickets</p>
+          {% endif %}
         </div>
       {% endfor %}
+      
     {% else %}
       <p>No bookings found.</p>
     {% endif %}

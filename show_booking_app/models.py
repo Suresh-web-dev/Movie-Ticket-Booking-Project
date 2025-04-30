@@ -50,3 +50,4 @@ class book(models.Model):
     cinemas_name = models.CharField(max_length=255,null=True)
     location = models.CharField(max_length=255,null=True)
     sports_type = models.CharField(max_length=255,null=True)
+    seats = models.IntegerField(null=True)
