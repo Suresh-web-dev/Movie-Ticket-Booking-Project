@@ -43,6 +43,7 @@ class cinemas_upload(models.Model):
 
 
 class book(models.Model):
+    user = models.CharField(max_length=255,null=True)
     image = models.ImageField(upload_to='images/',null=True)
     title = models.CharField(max_length=255,null=True)
     language = models.CharField(max_length=255,null=True)

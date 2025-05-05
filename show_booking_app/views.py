@@ -382,7 +382,7 @@ def success(request,mov_id,cin_id,seats):
     k =image_upload.objects.get(id=mov_id)
     l = cinemas_upload.objects.get(id=cin_id)
 
-    book.objects.create(image=k.image,title=k.title,language=k.language,movie_type=k.movie_type,cinemas_name=l.cinemas_name,seats=seats)
+    book.objects.create(user=request.user,image=k.image,title=k.title,language=k.language,movie_type=k.movie_type,cinemas_name=l.cinemas_name,seats=seats)
     obj = {"k" :k,"l":l,"seats":seats}
     return render(request,"booking_success.html",obj)
 
@@ -423,7 +423,7 @@ def sports_seat_select(request,id):
 
 
 def my_booking(request):
-    all = book.objects.all()
+    all = book.objects.filter(user=request.user)
     obj = {"all": all}
     return render(request,"my_booking.html",obj)
 
