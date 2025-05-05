@@ -426,10 +426,3 @@ def my_booking(request):
     all = book.objects.filter(user=request.user)
     obj = {"all": all}
     return render(request,"my_booking.html",obj)
-
-
-
-
-
-
-
