@@ -72,3 +72,19 @@
     top: 70px;
     left: 100px;
 }
+
+
+@media (max-width: 600px){
+    
+    .login_overlay{
+        width: 600px;
+    }
+
+    .login_popup_box{
+        position: absolute;
+        left: 100px;
+        top: 40px;
+    }
+
+
+}

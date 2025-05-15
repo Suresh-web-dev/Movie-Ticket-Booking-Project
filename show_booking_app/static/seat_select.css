@@ -108,3 +108,10 @@ form .store{
     font-size: 20px;
     font-weight: bold;
 }
+
+
+@media (max-width: 600px) {
+    .seat_contain .seat{
+        margin-top: 40px;
+    }
+}

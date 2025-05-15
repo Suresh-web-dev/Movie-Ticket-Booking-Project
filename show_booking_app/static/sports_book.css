@@ -65,7 +65,7 @@ body{
     width: 100px;
     padding: 8px;
     position: relative;
-    left: 400px;
+    left: 880px;
     top: 5px;
     cursor: pointer;
     border-radius: 5px;
@@ -203,7 +203,7 @@ body{
 
 .head #profile{
     position: relative;
-    left: 450px;
+    left: 930px;
     top: 10px;
     font-size: 25px;
     color: black;
@@ -402,6 +402,143 @@ body{
     background-color: orangered;
     cursor: pointer;
 }
+
+
+/*     mobile alignment    */
+
+@media (max-width: 600px){ 
+     .head h1{
+        font-size: 30px;
+    }
+
+    .head .search{
+        position: absolute;
+        left: -100px;
+        top: 80px;
+    }
+
+    
+    .search #search_form input{
+        width: 430px;
+        position: relative;
+        left: 115px;
+    }
+
+    #search_form{
+        display: flex;
+    }
+
+    .head .search i{
+        position: relative;
+        top: -28px;
+        left: 123px;
+    }
+
+    #search_form #submit{
+        display: block;
+        width: 100px;
+        margin-left: 30px;
+        padding-left: 10px;
+    }
+
+    .head .sign_button{
+        position: absolute;
+        top: 17px;
+        left: 470px;
+    }
+
+    .head #profile{
+        position: relative;
+        top: 5px;
+        left: 180px;
+    }
+
+    .overlay{
+        width: 600px;
+    }
+
+    .popup_box{
+        position: absolute;
+        left: 100px;
+    }
+
+    .profile_overlay{
+        width: 600px;
+    }
+
+    .profile_popup_box{
+        position: absolute;
+        left: 100px;
+    }
+
+    .sub_head{
+       position: relative;
+       top: 0px;
+    }
+
+    .sub_head nav{
+        height: 40px;
+    }
+
+    .sub_head nav ul li a{
+        font-size: 11px;
+    }
+
+    .contain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .contain .movies {
+        margin-right: 100px;
+        position: relative;
+        top: 10px;
+        left: 50px;
+        height: 320px;
+        width: 220px;
+        margin-top: 0px;
+    }
+
+    .contain .text {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-top: 10px;
+    }
+
+    .movies img{
+        height: 300px;
+        width: 200px;
+    }
+
+
+    .contain .text h1{
+        padding: 0px;
+    }
+
+    .contain .text h3{
+        padding: 5px;
+    }
+
+    .contain .text p{
+        padding: 5px;
+    }
+
+    .contain .text button{
+        margin-top: 3px;
+        margin-bottom: 5px;
+    }
+
+    .contain .text a{
+        padding: 0px;
+    }
+}
+
+
 
 
 

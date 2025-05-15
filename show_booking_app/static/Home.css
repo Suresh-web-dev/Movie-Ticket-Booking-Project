@@ -460,6 +460,12 @@
         display: flex;
     }
 
+    .head .search i{
+        position: relative;
+        top: -28px;
+        left: 123px;
+    }
+
     #search_form #submit{
         display: block;
         width: 100px;
@@ -475,8 +481,8 @@
 
     .head #profile{
         position: relative;
-        top: 3px;
-        left: 310px;
+        top: 5px;
+        left: 180px;
     }
 
     .overlay{
@@ -524,7 +530,7 @@
     }
 
     .container .movies{
-        height: 380px;
+        height: 400px;
         width: 185px;
     }
 

@@ -5,17 +5,12 @@
     box-sizing: border-box;
 }
 
-body{
-    background-color: black;
-}
-
 .head{
     display: flex;
+    margin-top: 15px;
     padding-bottom: 15px;
-    padding-top: 15px;
     width: 100%;
     border-bottom: 1px solid black;
-    background-color: white;
 }
 
 .head h1{
@@ -65,7 +60,7 @@ body{
     width: 100px;
     padding: 8px;
     position: relative;
-    left: 400px;
+    left: 880px;
     top: 5px;
     cursor: pointer;
     border-radius: 5px;
@@ -84,8 +79,8 @@ body{
     left: 0;
     opacity: 0.8;
     transition: 0.5s;
-    z-index: 1;
     display: none;
+    z-index: 1;
 }
 
 .popup_box{
@@ -155,7 +150,6 @@ body{
 
 
 
-
 /*     navigation bar  */
 .sub_head{
     background-color: whitesmoke;
@@ -205,7 +199,7 @@ body{
 
 .head #profile{
     position: relative;
-    left: 450px;
+    left: 930px;
     top: 10px;
     font-size: 25px;
     color: black;
@@ -320,90 +314,143 @@ body{
 }
 
 
-/*   movies  section   */
 
 
 
-.contain{
-    background-color: black;
-    height: 500px;
+.container{
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
     display: flex;
-   
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    row-gap: 50px;
+    border-radius: 10px;
 }
 
 
-.movies{
-    background-color: white;
-    height: 380px;
+.container .movies{
+    background-color: #b8b8b6;
+    height: 450px;
     width: 270px;
     border-radius: 10px;
     margin-top: 15px;
-    cursor: pointer;
-    position: relative;
-    top: 60px;
-    left: 130px;
+    box-shadow: 5px 5px 8px black;
 }
 
 
-.movies img{
+.container .movies img{
     height: 350px;
     width: 250px;
     border-radius: 5px;
     display: flex;
     justify-self: center;
     margin-top: 10px;
-    cursor: pointer;
-}
-
-.contain .text{
-    position: relative;
-    left: 180px;
-    top: 150px;
-    height: fit-content;
-
 }
 
 
-.contain h1{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
-    font-size: 40px;
-}
 
 
-.contain h3{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
-    padding-top: 0px;
-    font-size: 30px;
-}
-
-.contain p{
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 20px;
-    padding-top: 0px;
-    font-size: 20px;
-}
-
-.contain a{
-    padding: 20px;
-    padding-top: 0px;
-}
-
-
-.contain a button{
-    width: 250px;
-    padding: 15px;
-    margin-top: 20px;
+.container .movies button{
+    width: 200px;
+    padding: 10px;
     border-radius: 5px;
+    margin-top: 30px;
+    position: relative;
+    left: 35px;
     border: none;
-    outline: 1px solid white;
-    background-color: orangered;
+    box-shadow: 3px 3px 5px black;
+    outline: 1px black solid;
     cursor: pointer;
 }
+
+
+@media (max-width: 600px){ 
+    .head h1{
+        font-size: 30px;
+    }
+
+    .head .sign_button{
+        position: absolute;
+        top: 17px;
+        left: 470px;
+    }
+
+    .head #profile{
+        position: relative;
+        top: 5px;
+        left: 180px;
+    }
+
+    .overlay{
+        width: 600px;
+    }
+
+    .popup_box{
+        position: absolute;
+        left: 100px;
+    }
+
+    .profile_overlay{
+        width: 600px;
+    }
+
+    .profile_popup_box{
+        position: absolute;
+        left: 100px;
+    }
+
+    .sub_head{
+       position: relative;
+       top: 10px;
+    }
+
+    .sub_head nav{
+        height: 40px;
+    }
+
+    .sub_head nav ul li a{
+        font-size: 11px;
+    }
+
+    
+
+    .main_sliders{
+        position: relative;
+        top: 70px;
+    }
+
+    .container{
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .container .movies{
+        height: 380px;
+        width: 185px;
+    }
+
+    .container .movies img{
+        height: 262px;
+        width: 170px;
+    }
+
+    .container .movies h2{
+        padding: 2px;
+    }
+
+    .container .movies button{
+        width: 150px;
+        position: relative;
+        left: 17px;
+        right: 0px;
+
+    }
+}
+
+
 
 
 

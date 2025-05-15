@@ -397,6 +397,124 @@
 }
 
 
+#submit{
+    display: none;
+}
+
+
+
+
+/*     mobile alignment    */
+
+
+@media (max-width: 600px){ 
+    .head h1{
+        font-size: 30px;
+    }
+
+    
+    .head .search{
+        position: absolute;
+        left: -100px;
+        top: 80px;
+    }
+
+    .search #search_form input{
+        width: 430px;
+        position: relative;
+        left: 115px;
+    }
+
+    #search_form{
+        display: flex;
+    }
+
+    .head .search i{
+        position: relative;
+        top: -28px;
+        left: 123px;
+    }
+
+    #search_form #submit{
+        display: block;
+        width: 100px;
+        margin-left: 30px;
+        padding-left: 10px;
+    }
+
+    .head .sign_button{
+        position: absolute;
+        top: 17px;
+        margin-left: 75px;
+    }
+
+    .head #profile{
+        position: relative;
+        top: 5px;
+        left: 180px;
+    }
+
+    .overlay{
+        width: 600px;
+    }
+
+    .popup_box{
+        position: absolute;
+        left: 100px;
+    }
+
+    .profile_overlay{
+        width: 600px;
+    }
+
+    .profile_popup_box{
+        position: absolute;
+        left: 100px;
+    }
+
+    .sub_head{
+       position: relative;
+       top: 70px;
+    }
+
+    .sub_head nav{
+        height: 40px;
+    }
+
+    .sub_head nav ul li a{
+        font-size: 11px;
+    }
+
+    .movie_title{
+        position: relative;
+        top: 80px;
+    }
+
+    .container{
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .container .movies{
+        height: 400px;
+        width: 185px;
+    }
+
+    .container .movies img{
+        height: 262px;
+        width: 170px;
+    }
+
+    .container .movies h2{
+        padding: 2px;
+    }
+}
+
+
+
+
+
 
 
 
