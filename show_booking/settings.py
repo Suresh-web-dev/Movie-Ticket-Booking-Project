@@ -1,5 +1,8 @@
 import os
+<<<<<<< HEAD
 
+=======
+>>>>>>> e0edd8376d429dc97fcd69b116297c4ffc904723
 """
 Django settings for show_booking project.
 
@@ -25,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^&3k0i7b1@uht=7pc@=!^g*r=%sl0@#*qqzam*%e+q)%^w(09b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 1
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -123,8 +126,6 @@ from pathlib import Path
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
