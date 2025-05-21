@@ -1,8 +1,3 @@
-import os
-<<<<<<< HEAD
-
-=======
->>>>>>> e0edd8376d429dc97fcd69b116297c4ffc904723
 """
 Django settings for show_booking project.
 
