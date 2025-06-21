@@ -252,10 +252,23 @@ def cinemas(request):
 def movie_ticket(request,id):
     all = cinemas_upload.objects.all()
     x=image_upload.objects.get(id=id)
-    obj = {"all" :all,"x":x}
+    obj = {"all" :all,"x":x} 
     return render(request,"cinemas.html",obj)
-   
-   
+
+
+
+def cinemas_search(request):
+    if request.method=="POST":
+        cinemas_name = request.POST.get("cinemas_name").upper()
+        if cinemas_name:
+            results = cinemas_upload.objects.filter(cinemas_name=cinemas_name)
+            if results.exists():
+                obj = {"all": results}
+                return render(request,"cinemas.html",obj)
+            else:
+                obj = {"error": "No cinemas found."}
+                return render(request,"cinemas.html",obj)
+    return render(request,"cinemas.html")
 
 
 def admin_page(request):
@@ -337,20 +350,6 @@ def sports_search(request):
     return render(request, "sports.html")
 
 
-
-
-def cinemas_search(request):
-    if request.method=="POST":
-        cinemas_name = request.POST.get("cinemas_name").upper()
-        if cinemas_name:
-            results = cinemas_upload.objects.filter(cinemas_name=cinemas_name)
-            if results.exists():
-                obj = {"all": results}
-                return render(request, "cinemas.html",obj)
-            else:
-                obj = {"error": "No cinemas found."}
-                return render(request, "cinemas.html",obj)
-    return render(request, "cinemas.html")
 
 
 def ticket_book(request):
