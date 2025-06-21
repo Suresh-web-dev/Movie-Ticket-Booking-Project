@@ -25,7 +25,7 @@ from show_booking_app.views import home
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='homepage'),  
-    path('home/', include('show_booking_app.urls')),
+    path('', include('show_booking_app.urls')),
 ]
 
 if settings.DEBUG:
