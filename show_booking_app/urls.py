@@ -3,6 +3,7 @@ from show_booking_app.views import home,signup_view,login_view,signup_datas,logu
 
 
 urlpatterns = [
+    path('', home, name='homepage'),
     path('home/',home),
     path('signup/',signup_view),
     path('login/',login_view),
