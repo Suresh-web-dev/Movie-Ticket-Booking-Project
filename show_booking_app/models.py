@@ -17,20 +17,20 @@ class log(models.Model):
 
 class image_upload(models.Model):
     language = models.CharField(max_length=255,null=True)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='movies/')
     title = models.CharField(max_length=255,null=True)
     movie_type = models.CharField(max_length=255,null=True)
 
 
 class events_upload(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='movies/')
     title = models.CharField(max_length=255,null=True)
     location = models.CharField(max_length=255,null=True)
 
 
 
 class sports_upload(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='movies/')
     title = models.CharField(max_length=255,null=True)
     location = models.CharField(max_length=255,null=True)
     sports_type = models.CharField(max_length=255,null=True)
@@ -44,7 +44,7 @@ class cinemas_upload(models.Model):
 
 class book(models.Model):
     user = models.CharField(max_length=255,null=True)
-    image = models.ImageField(upload_to='images/',null=True)
+    image = models.ImageField(upload_to='movies/',null=True)
     title = models.CharField(max_length=255,null=True)
     language = models.CharField(max_length=255,null=True)
     movie_type = models.CharField(max_length=255,null=True)
