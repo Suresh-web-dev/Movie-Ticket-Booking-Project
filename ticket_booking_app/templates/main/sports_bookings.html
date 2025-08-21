@@ -1,0 +1,24 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main_CSS/bookings__.css' %}">
+{% endblock head %}
+
+
+{% block content %}
+    <div class="contain">
+        <div class="movies">
+            <img src="{{sport.image.url}}">
+        </div>
+        <div class="text">
+            <h1>{{sport.title}}</h1>
+            <h3>{{sport.location}}</h3>
+            <p>{{sport.sports_type}}</p>
+            <p>{{seats}} Tickets</p>
+            <a href="/sports_success/{{ sport.id }}/{{seats}}"><button>Book Ticket</button></a>
+        </div>
+    </div>
+
+    {% endblock content %}

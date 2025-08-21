@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where's MySeat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'inc_css/navbar_.css'%}">
+</head>
+<body>
+
+    <!--    header section   -->
+
+    <header>
+        <div class="head">
+            <h1>Where’sMySeat</h1>
+            <div class="search">
+                <form action="/search/" method="POST" id="search_form" class="search_form">
+                    {% csrf_token %}
+                    <input type="text" name="title" placeholder="Search" class="search_input">
+                    <input type="submit" id="submit" value="Search">
+                </form>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="profile_click">
+                {% if user.is_authenticated %}
+                <h3 class="alter_name">{{user.username}}</h3>
+                {% else %}
+                <button class="sign_button"  onclick="window.location.href='/signup_view/'">Sign Up</button>
+                {% endif %}
+                <i class="fa-solid fa-user" class="profile" id="profile_logo"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <!--    navigation section   -->
+
+    <div class="sub_head">
+        <nav>
+            <ul>
+                <li><a href="/home/">HOME</a></li>
+                <li><a href="/movies/">MOVIES</a></li>
+                <li><a href="/sports/">SPORTS</a></li>
+                <li><a href="/my_booking/">MY BOOKING</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <!--    profile  section    -->
+
+
+    <div class="profile_overlay" id="overlay"></div>
+
+    <div class="profile_popup_box" id="popup_box">
+        <h1 class="h1">PROFILE</h1>
+        <i class="fa-solid fa-xmark" id="profile_cancel"></i>
+        <p>{{user.email}}</p>
+
+        <h1 class="wel">Welcome...!</h1>
+
+        <i class="fa-solid fa-user" id="inner_profile"></i>
+
+        {% if user.username %}
+        <h1 class="name">{{user.username | upper}}</h1>
+        {% else %}
+        <h1 class="name">Guest</h1>
+        {% endif %}
+
+        <div class="buttons">
+            <a href="/login_view/"><button class="login_button">Login</button></a>
+            <a href="/logout_view/"><button class="logout_button">Logout</button></a>
+        </div>    
+    </div>
+    
+
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+        overlay = document.getElementById("overlay")
+        popup_box = document.getElementById("popup_box")
+        profile_logo = document.getElementById("profile_logo")
+        profile_cancel = document.getElementById("profile_cancel")
+    
+        profile_logo.addEventListener("click",function(){
+            overlay.style.display = "block"
+            popup_box.style.display = "block"
+        })
+
+        profile_cancel.addEventListener("click",function(){
+            overlay.style.display = "none"
+            popup_box.style.display = "none"
+        })
+    })
+
+    </script>
+</body>
+</html>

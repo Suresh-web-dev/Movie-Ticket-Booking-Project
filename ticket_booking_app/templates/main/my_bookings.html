@@ -1,0 +1,58 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main_CSS/my_bookings_.css' %}">
+{% endblock head %}
+
+{% block content %}
+  <div class="my_booking">
+    <h2>My Bookings</h2>
+  </div>
+
+  <div class="container">
+    {% if all %}
+      {% for i in all %}
+        <div class="movies">
+
+          {% if i.image %}
+            <img src="{{ i.image.url }}">
+          {% endif %}
+
+          <div class="text">
+            <h2>{{ i.title }}</h2>
+
+            {% if i.language %}
+              <span>{{ i.language }}</span>
+            {% endif %}
+            
+            {% if i.movie_type %}
+              <p>{{ i.movie_type }}</p>
+            {% endif %}
+            
+            {% if i.cinemas_name %}
+              <p>{{ i.cinemas_name }}</p>
+            {% endif %}
+            
+            {% if i.location %}
+              <p>{{ i.location }}</p>
+            {% endif %}
+
+            {% if i.sports_type %}
+              <p>{{ i.sports_type }}</p>
+            {% endif %}
+
+            {% if i.seats %}
+              <p>{{ i.seats }} Tickets</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+      
+    {% else %}
+      <p id="error" >No bookings found.</p>
+    {% endif %}
+  </div>
+
+{% endblock content %}

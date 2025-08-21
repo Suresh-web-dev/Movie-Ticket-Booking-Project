@@ -1,0 +1,36 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main_CSS/cinemas__.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+
+    <div class="contain">
+        <div class="movies">
+            <img src="{{a.image.url}}">
+        </div>
+        <div class="text">
+            <h1>{{a.title}}</h1>
+            <h3>{{a.language}}</h3>
+            <p>{{a.movie_type}}</p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        {% for i in all %}
+        <a href="/tickets/{{ a.id }}/{{i.id}}">
+            <div class="cinemas">
+                <h2>{{ i.cinemas_name }}</h2>
+                <p>{{ i.address }}</p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+
+{% endblock content%}

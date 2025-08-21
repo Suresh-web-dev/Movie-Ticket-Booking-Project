@@ -1,0 +1,26 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main_CSS/sports_.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+<div class="container">
+    {% for i in all %}
+        <a href="/sports_tickets/{{i.id}}/">
+            <div class="sports">
+                {% if i.image %}
+                <img src="{{ i.image.url }}" class="sports_poster">
+                {% else %}
+                {% endif %}
+                <h2>{{ i.title }}</h2>
+                <h3>{{i.location}}</h3>
+                <p>{{ i.sports_type }}</p>
+            </div></a>
+     {% endfor %}
+    </div>
+
+{% endblock content %}

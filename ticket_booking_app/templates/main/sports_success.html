@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where's MySeat</title>
+    <link rel="stylesheet" href="{% static 'main_CSS/success__.css'%}">
+</head>
+<body>
+    
+
+    <div class="container">
+        <div class="contain">
+            <div class="movies">
+                <img src="{{sport.image.url}}">
+            </div>
+
+            <div class="text">
+                <h1>{{sport.title}}</h1>
+                <h3>{{sport.location}}</h3>
+                <p>{{sport.sports_type}}</p>
+                <p class="ticket">{{ seats }} Tickets</p>
+            </div>
+            <h1>Successfully Booking...!</h1>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main_CSS/home__.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+<!--    slider  section    -->
+
+<div class="main_sliders">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="{% static 'images/image1.jpg' %}" class="slide_img">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/image2.jpg' %}" class="slide_img">
+                </div>
+                <div class="slide">
+                    <img src="{% static 'images/image3.jpg' %}" class="slide_img">
+                </div>
+
+                <div class="auto">
+                    <div class="auto1"></div>
+                    <div class="auto2"></div>
+                    <div class="auto3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--    movies  section    -->
+
+    <div class="container">
+    {% for i in all %}
+        <a href="/one/{{i.id}}">
+            <div class="movies">
+                <span>{{ i.language|title }}</span>
+                {% if i.image %}
+                <img src="{{ i.image.url }}" class="movie_poster">
+                {% else %}
+                {% endif %}
+                <h2>{{ i.title }}</h2>
+                <p>{{ i.movie_type }}</p>
+            </div></a>
+     {% endfor %}
+    </div>
+
+{% endblock content %}
+
+
+{% block sctipts %}
+
+<script>
+        index = 0
+
+    function autoSlide() {
+        slides = document.querySelector('.slides')
+        totalSlides = document.querySelectorAll('.slide').length
+
+        index = (index + 1) % totalSlides
+        slides.style.transform = `translateX(-${index * 100}%)`
+    }
+
+    setInterval(autoSlide, 3000)
+
+    </script>
+
+         
+{% endblock sctipts %}

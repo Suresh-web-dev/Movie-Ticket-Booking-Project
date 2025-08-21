@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Where's MySeat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'signup_pages_CSS/signup__.css'%}">
+</head>
+<body>
+    
+<div class="signup_page">
+    <div class="sign">
+        <div class="signup">
+            <h2>Create Account</h2>
+            <a href="#"><i class="fa-solid fa-xmark" id="cancel"></i></a>
+    
+            <form action="/signup_view/" method="POST" id="signup_form" class="signup_form" autocomplete="off">
+                {% csrf_token %}
+                 
+                <div class="input_box">
+                    <input type="text" name="username" placeholder="Username" id="username">
+                    <small>Error Message</small>
+                    <i class="fa-regular fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                
+                <div class="input_box">
+                    <input type="email" name="email" placeholder="Email" id="email">
+                    <small>Error Message</small>
+                    <i class="fa-regular fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="password" name="password1" placeholder="Password" id="password">
+                    <small>Error Message</small>
+                    <i class="fa-regular fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" id="confirm_password">
+                    <small>Error Message</small>
+                    <i class="fa-regular fa-circle-check"></i>
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+
+                <input type="submit" value="Sign up" class="signup_button">
+    
+                <span>Already have an account?<a href="/login_view/">Login</a></span>
+            </form>
+        </div>
+
+        <div class="log_move">
+            <h1>Where's MySeat</h1>
+            <a href="#" class="login_cancel"><i class="fa-solid fa-xmark" id="cancel"></i></a>
+            <span class="message">Already have an account?</span>
+            <a href="/login_view/" class="login"><button>Login</button></a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+        signup_form = document.getElementById("signup_form")
+        username = document.getElementById("username")
+        email = document.getElementById("email")
+        password = document.getElementById("password")
+        confirm_password = document.getElementById("confirm_password")
+
+        signup_form.addEventListener("submit",(e) => {
+            e.preventDefault();
+            if (validateInputs()) {
+                signup_form.submit(); 
+            }
+        });
+
+        function validateInputs(){
+            usernamevalue = username.value.trim()
+            emailvalue = email.value.trim()
+            passwordvalue = password.value.trim()
+            confirm_passwordvalue = confirm_password.value.trim()
+
+            valid = true
+
+            if(usernamevalue === ""){
+                setError(username,"Username cannot be blank!")
+                valid = false
+            }
+
+            else{
+                setSuccess(username)
+            }
+
+            if(emailvalue === ""){
+                setError(email,"Email cannot be blank!")
+                valid = false
+            }
+
+            else if(!isEmail(emailvalue)){
+                setError(email,"Not a valid Email!")
+                valid = false
+            }
+
+            else{
+                setSuccess(email)
+            }
+
+            if(passwordvalue === ""){
+                setError(password,"Password cannot be blank!")
+                valid = false
+            }
+
+            else{
+                setSuccess(password)
+            }
+
+            if(confirm_passwordvalue  === ""){
+                setError(confirm_password,"Password cannot be blank!")
+                valid = false
+            }
+
+            else if(passwordvalue !== confirm_passwordvalue){
+                setError(confirm_password,"Password does not match!")
+                valid = false
+            }
+
+            else{
+                setSuccess(confirm_password)
+            }
+
+            return valid
+
+        }
+
+        function setError(input,message){
+            const inputBox = input.parentElement;
+            const small = inputBox.querySelector('small');
+            inputBox.className = "input_box error"
+            small.innerText = message;
+        }
+
+        function setSuccess(input){
+           const inputBox = input.parentElement;
+           const small = inputBox.querySelector('small');
+           inputBox.className = "input_box success"
+           small.innerText = "";
+        }
+
+
+        function isEmail(email) {
+            return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}(\.[0-9]{1,3}){3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+        }
+
+
+    </script>
+
+
+</body>
+</html>

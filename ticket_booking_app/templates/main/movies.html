@@ -1,0 +1,45 @@
+{% extends 'layouts/main.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main_CSS/movies_.css' %}">
+{% endblock head %}
+
+{% block content %}
+
+<!--    language navbar  section    -->
+
+    <div class="navigation">
+        <nav>
+            <h2>Languages</h2>
+            <ul>
+                <li><a href="/tamil_movies/">Tamil</a></li>
+                <li><a href="/english_movies/">English</a></li>
+                <li><a href="/malayalam_movies/">Malayalam</a></li>
+                <li><a href="/hindi_movies/">Hindi</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+<!--    movies  section    -->
+
+    <div class="container">
+    {% for i in all %}
+        <a href="/one/{{i.id}}">
+            <div class="movies">
+                <span>{{ i.language|title }}</span>
+                {% if i.image %}
+                <img src="{{ i.image.url }}" class="movie_poster">
+                {% else %}
+                {% endif %}
+                <h2>{{ i.title }}</h2>
+                <p>{{ i.movie_type }}</p>
+            </div></a>
+     {% endfor %}
+    </div>
+
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
