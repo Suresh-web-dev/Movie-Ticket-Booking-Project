@@ -2,6 +2,7 @@ from django.urls import path
 from ticket_booking_app.views import index,signup_view,login_view,logout_view,home,movies,tamil_movies,english_movies,malayalam_movies,hindi_movies,cinemas,one,tickets,sports_tickets,bookings,sports_bookings,success,sports_success,sports,my_booking,search
 
 urlpatterns = [
+    path("", index),
     path("index/",index),
     path("signup_view/",signup_view),
     path("login_view/",login_view),
