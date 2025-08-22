@@ -23,8 +23,6 @@ CSRF_TRUSTED_ORIGINS = ["https://whereismyseat-jves.onrender.com"]
 if not DEBUG:  # production
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_DOMAIN = ".whereismyseat-jves.onrender.com"
-    CSRF_COOKIE_DOMAIN = ".whereismyseat-jves.onrender.com"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
