@@ -21,8 +21,8 @@ ALLOWED_HOSTS = ["whereismyseat-jves.onrender.com", "localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = ["https://whereismyseat-jves.onrender.com"]
 
 if not DEBUG:  # production
-    SESSION_COOKIE_SECURE = True
-    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
