@@ -13,9 +13,9 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-ALLOWED_HOSTS = ["ticket_booking.onrender.com", "localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://ticket_booking.onrender.com"]
+ALLOWED_HOSTS = ["whereismyseat-jves.onrender.com", "localhost", "127.0.0.1"]
 
+CSRF_TRUSTED_ORIGINS = ["https://whereismyseat-jves.onrender.com"]
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
