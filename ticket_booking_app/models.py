@@ -4,7 +4,7 @@ from django.db import models
 
 class movies_upload(models.Model):
     language = models.CharField(max_length=255,null=True)
-    image = models.ImageField(upload_to='movie/')
+    image = models.ImageField(upload_to='movies/')
     title = models.CharField(max_length=255,null=True)
     movie_type = models.CharField(max_length=255,null=True)
 
