@@ -14,7 +14,7 @@
     <div class="sign">
         <div class="signup">
             <h2>Create Account</h2>
-            <a href="#"><i class="fa-solid fa-xmark" id="cancel"></i></a>
+            <a href="/home/"><i class="fa-solid fa-xmark" id="cancel"></i></a>
     
             <form action="/signup_view/" method="POST" id="signup_form" class="signup_form" autocomplete="off">
                 {% csrf_token %}
@@ -55,7 +55,7 @@
 
         <div class="log_move">
             <h1>Where's MySeat</h1>
-            <a href="#" class="login_cancel"><i class="fa-solid fa-xmark" id="cancel"></i></a>
+            <a href="/home/" class="login_cancel"><i class="fa-solid fa-xmark" id="cancel"></i></a>
             <span class="message">Already have an account?</span>
             <a href="/login_view/" class="login"><button>Login</button></a>
         </div>
