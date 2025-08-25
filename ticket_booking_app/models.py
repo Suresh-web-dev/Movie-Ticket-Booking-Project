@@ -1,10 +1,11 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
 class movies_upload(models.Model):
     language = models.CharField(max_length=255,null=True)
-    image = models.ImageField(upload_to='movies/')
+    image = CloudinaryField('movies/')
     title = models.CharField(max_length=255,null=True)
     movie_type = models.CharField(max_length=255,null=True)
 

@@ -24,6 +24,13 @@ if not DEBUG:  # production
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
