@@ -14,7 +14,7 @@ class cinemas_upload(models.Model):
     address = models.CharField(max_length=255,null=True)
 
 class sports_upload(models.Model):
-    image = models.ImageField(upload_to='movies/')
+    image = CloudinaryField('sports/')
     title = models.CharField(max_length=255,null=True)
     location = models.CharField(max_length=255,null=True)
     sports_type = models.CharField(max_length=255,null=True)
@@ -22,7 +22,7 @@ class sports_upload(models.Model):
 
 class book(models.Model):
     user = models.CharField(max_length=255,null=True)
-    image = models.ImageField(upload_to='movies/',null=True)
+    image = CloudinaryField('bookings/')
     title = models.CharField(max_length=255,null=True)
     language = models.CharField(max_length=255,null=True)
     movie_type = models.CharField(max_length=255,null=True)
