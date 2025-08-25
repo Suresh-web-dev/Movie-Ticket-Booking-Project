@@ -154,14 +154,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Cloudinary for media
 import os
 
-#DEBUG = os.environ.get("DEBUG", "False") == "True"
-
-#if DEBUG:
-    # Local dev → store in /media/
-#    MEDIA_URL = "/media/"
-#    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
- # Production → use Cloudinary
+# Cloudinary for media
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
 CLOUDINARY_STORAGE = {
@@ -169,3 +162,8 @@ CLOUDINARY_STORAGE = {
     "API_KEY": os.environ.get("CLOUDINARY_API_KEY"),
     "API_SECRET": os.environ.get("CLOUDINARY_API_SECRET"),
 }
+
+# Only for local development
+if os.environ.get("DEBUG", "False") == "True":
+    MEDIA_URL = "/media/"
+    MEDIA_ROOT = BASE_DIR / "media"
