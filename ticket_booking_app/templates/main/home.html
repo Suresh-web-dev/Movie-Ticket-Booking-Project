@@ -42,6 +42,8 @@
                 <span>{{ i.language|title }}</span>
                 {% if i.image %}
                 <img src="{{ i.image.url }}" class="movie_poster">
+                <p>Storage backend: {{ i.image.storage }}</p>
+                <p>Image URL: {{ i.image.url }}</p>
                 {% else %}
                 {% endif %}
                 <h2>{{ i.title }}</h2>
